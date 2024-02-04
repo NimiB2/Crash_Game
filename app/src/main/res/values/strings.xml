@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyCrashGame</string>
+    <string name="left">left</string>
+    <string name="right">right</string>
+    <string name="crush_toast">Oh no, I\'m melting!</string>
+    <string name="end_game_toast">It was a good life, get better for next time</string>
+</resources>
