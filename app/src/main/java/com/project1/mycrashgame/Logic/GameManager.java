@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class GameManager {
     private final int life;
     private MyMatrix myMatrix;
-
     private final int numOfColumns;
     private final int numOfRows;
     private int witchVisibleIndex;
@@ -27,6 +26,7 @@ public class GameManager {
     public GameManager(ArrayList<LinearLayoutCompat> main_All_Layouts_Of_Cloud, int life) {
         this.life=life;
         this.numOfCrush=0;
+        this.myMatrix= new MyMatrix(main_All_Layouts_Of_Cloud);
         this.numOfColumns =this.myMatrix.getLayoutsCloudList().size();
         this.numOfRows=this.myMatrix.getLayoutsCloudList().get(0).getChildCount();
         this.witchVisibleIndex=this.numOfColumns/2;
@@ -61,10 +61,10 @@ public class GameManager {
     public void setWitchVisibleIndex(int witchVisibleIndex) {
         this.witchVisibleIndex = witchVisibleIndex;
     }
-    public GameManager setMyMatrix(MyMatrix myMatrix) {
+    public MyMatrix setMyMatrix(ArrayList<LinearLayoutCompat> main_All_Layouts_Of_Cloud) {
         this.myMatrix= new MyMatrix(main_All_Layouts_Of_Cloud);
         //this.myMatrix = myMatrix;
-        return this;
+        return this.myMatrix;
     }
 
 }

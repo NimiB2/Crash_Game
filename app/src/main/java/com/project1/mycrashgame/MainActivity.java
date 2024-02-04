@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         gameOver();
     }
+    protected void onDestroy() {
+        super.onDestroy();
+        gameOver();
+    }
 
     private void initBackground() {
         Glide
