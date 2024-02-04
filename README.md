@@ -10,7 +10,7 @@ Note: I did not use canvas and X Y coordinates to move the clouds in this game. 
 Usage
 To play My Crash Game, tap the left or right button to move your hat. Avoid hitting the clouds and witches that fall from the sky. You have three lives, which are shown by the hats at the top of the screen. If you lose all your lives, the game is over.
 
-Do you like this README? Is there anything else you want to change or add? 😊
+Would you like to play 😊
 -
 -
 -
