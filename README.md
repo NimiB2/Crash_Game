@@ -35,11 +35,11 @@ For example,
 A moment of crash:
 
 
-![צילום מסך 2024-02-03 175256](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/298de0d2-38af-4d33-a1d0-db30456b95d9)
+![צילום מסך 2024-02-03 175256](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/d1ebabb9-a034-4441-acb7-1e56930e9275)
 
 
-![צילום מסך 2024-02-03 175303](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/386e79ed-3dab-410a-a9db-c882583a3b01)
--
+![צילום מסך 2024-02-03 175303](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/1b3307bb-5fab-44f3-b8c9-e436ecba1a4c)
+
 -
 -
 -
@@ -50,8 +50,8 @@ A moment of crash:
 -
 -
 End of life:
+![צילום מסך 2024-02-03 175345](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/71351da5-ee04-48d6-84ef-362fbf820b74)
 
-![צילום מסך 2024-02-03 175345](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/d4465b2d-c6b5-4e97-a506-f963efb152db)
 
 
 
