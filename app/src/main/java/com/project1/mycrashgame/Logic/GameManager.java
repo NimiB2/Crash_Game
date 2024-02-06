@@ -7,12 +7,17 @@ import com.project1.mycrashgame.Model.MyMatrix;
 import java.util.ArrayList;
 
 public class GameManager {
-    private final int life;
+    private  int life;
     private MyMatrix myMatrix;
-    private final int numOfColumns;
-    private final int numOfRows;
+    private  int numOfColumns;
+    private  int numOfRows;
     private int witchVisibleIndex;
     private int numOfCrush;
+
+    public GameManager() {
+
+    }
+
 
     public GameManager(ArrayList<LinearLayoutCompat> main_All_Layouts_Of_Cloud) {
         this.life=3;
@@ -52,7 +57,7 @@ public class GameManager {
     }
 
     public void updateNumOfCrush() {
-            this.numOfCrush ++;
+        this.numOfCrush ++;
     }
     public int getWitchVisibleIndex() {
         return witchVisibleIndex;
@@ -63,7 +68,6 @@ public class GameManager {
     }
     public MyMatrix setMyMatrix(ArrayList<LinearLayoutCompat> main_All_Layouts_Of_Cloud) {
         this.myMatrix= new MyMatrix(main_All_Layouts_Of_Cloud);
-        //this.myMatrix = myMatrix;
         return this.myMatrix;
     }
 

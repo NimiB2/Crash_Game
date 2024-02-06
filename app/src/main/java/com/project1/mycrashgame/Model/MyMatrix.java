@@ -11,6 +11,11 @@ import java.util.List;
 
 public class MyMatrix {
     private List<LinearLayoutCompat> layoutsCloudList;
+
+
+    public MyMatrix() {
+
+    }
     public MyMatrix(List<LinearLayoutCompat> layoutsCloud) {
         this.layoutsCloudList=layoutsCloud;
         this.layoutsCloudList=initializationLayouts();
@@ -28,16 +33,16 @@ public class MyMatrix {
     }
 
     private void initializationClouds(LinearLayoutCompat cloudLayout) {
-       List<ShapeableImageView> clouds_IMG_List = new ArrayList<>();
+        List<ShapeableImageView> clouds_IMG_List = new ArrayList<>();
 
         for (int i = 0,j=0; i < cloudLayout.getChildCount(); i++) {
-           if(cloudLayout.getChildAt(i) instanceof ShapeableImageView){
-               ShapeableImageView temp= (ShapeableImageView) cloudLayout.getChildAt(i);
-               int cloudImageId =cloudLayout.getChildAt(i).getId();
-               clouds_IMG_List.add(temp);
-               clouds_IMG_List.get(j).findViewById(cloudImageId);
-               clouds_IMG_List.get(j++).setVisibility(View.INVISIBLE);
-           }
+            if(cloudLayout.getChildAt(i) instanceof ShapeableImageView){
+                ShapeableImageView temp= (ShapeableImageView) cloudLayout.getChildAt(i);
+                int cloudImageId =cloudLayout.getChildAt(i).getId();
+                clouds_IMG_List.add(temp);
+                clouds_IMG_List.get(j).findViewById(cloudImageId);
+                clouds_IMG_List.get(j++).setVisibility(View.INVISIBLE);
+            }
         }
     }
 }

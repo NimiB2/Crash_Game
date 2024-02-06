@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private static final int MOVE_RIGHT = 1;
     private static final int MOVE_LEFT = -1;
-    private static final long DELAY = 700;
+    private static final long DELAY = 1000;
     private static final long VIBRATION = 500;
     private final Handler initHandler = new Handler();
     private Runnable initRunnable;
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkCrush(View currentCloud, int currentCol) {
         int currentWitch = gameManager.getWitchVisibleIndex();
         currentCloud.setVisibility(View.INVISIBLE);
-        if ((currentWitch == currentCol) && main_LAYOUT_Of_Witches.get(currentWitch).getVisibility() == View.VISIBLE) {
+        if (main_LAYOUT_Of_Witches.get(currentCol).getVisibility() == View.VISIBLE) {
             updateCrushUI();
         }
     }
