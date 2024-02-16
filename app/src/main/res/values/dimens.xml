@@ -6,4 +6,8 @@
     <dimen name="arrows_margin">50dp</dimen>
     <dimen name="text_size">32sp</dimen>
     <dimen name="table_margin">60dp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="title_margin">90dp</dimen>
+    <dimen name="record_size">16sp</dimen>
+    <dimen name="player_record_margin">5dp</dimen>
 </resources>

@@ -5,4 +5,6 @@
     <string name="crush_toast">Oh no, I\'m melting!</string>
     <string name="end_game_toast">It was a good life, get better for next time</string>
     <string name="broom_toast">Champion :)</string>
+    <string name="score_title">000</string>
+    <string name="player_title">Player</string>
 </resources>

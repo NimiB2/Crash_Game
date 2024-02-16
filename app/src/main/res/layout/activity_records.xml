@@ -14,48 +14,253 @@
         android:layout_weight="1"
         android:padding="10dp">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/record_MTV_score_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="@dimen/margin_default"
-            android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/text_size"
-            android:text="Top records" />
-
-        <TableLayout
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/list_IMG_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/table_margin"
-            >
+            android:alpha="0.5" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/record_MTV_main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="TOP RECORDS"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:text="TextView" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/record_Layout_Player"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/title_margin"
+            android:layout_marginTop="@dimen/general_size_and_margin"
+            android:gravity="start"
+            android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView" />
-            </TableRow>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
 
-        </TableLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_player9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:text="@string/player_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/record_Layout_score"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/general_size_and_margin"
+            android:layout_marginEnd="@dimen/title_margin"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_record_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score"
+                android:textColor="@color/black"
+                android:textSize="@dimen/title_size"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/record_MTV_score9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_record_margin"
+                android:gravity="start"
+                android:text="@string/score_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/record_size" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </FrameLayout>
 
     <FrameLayout
@@ -64,6 +269,22 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:padding="10dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/map_BTN_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:backgroundTint="@color/orange_300"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/margin_default"
+            android:layout_marginHorizontal="100dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/title_size"
+            android:text="Main"
+            />
+
+
 
     </FrameLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

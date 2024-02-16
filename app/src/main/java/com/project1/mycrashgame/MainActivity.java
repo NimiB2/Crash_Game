@@ -202,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
         Intent recordIntent = new Intent(this, RecordsActivity.class);
         startActivity(recordIntent);
         finish();
-
     }
 
     private void toast(int currentValue) {
