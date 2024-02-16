@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="general_size_and_margin">50dp</dimen>
-    <dimen name="margin_cloud">43dp</dimen>
+    <dimen name="margin_cloud">16dp</dimen>
     <dimen name="margin_default">16dp</dimen>
     <dimen name="arrows_margin">50dp</dimen>
+    <dimen name="text_size">32sp</dimen>
+    <dimen name="table_margin">60dp</dimen>
 </resources>

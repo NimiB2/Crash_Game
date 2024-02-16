@@ -11,37 +11,54 @@ import java.util.List;
 
 public class MyMatrix {
     private List<LinearLayoutCompat> layoutsCloudList;
+    private List<LinearLayoutCompat> layoutsBroomList;
+
 
 
     public MyMatrix() {
 
     }
-    public MyMatrix(List<LinearLayoutCompat> layoutsCloud) {
+    public MyMatrix(List<LinearLayoutCompat> layoutsCloud,List<LinearLayoutCompat> layoutsBroom) {
         this.layoutsCloudList=layoutsCloud;
-        this.layoutsCloudList=initializationLayouts();
+        this.layoutsCloudList= initialization(true);
+        this.layoutsBroomList=layoutsBroom;
+        this.layoutsBroomList= initialization(false);
     }
 
     public List<LinearLayoutCompat> getLayoutsCloudList() {
         return layoutsCloudList;
     }
 
-    private List<LinearLayoutCompat> initializationLayouts(){
-        for (LinearLayoutCompat cloudLayout: layoutsCloudList) {
-            initializationClouds(cloudLayout);
-        }
-        return layoutsCloudList;
+    public List<LinearLayoutCompat> getLayoutsBroomList() {
+        return layoutsBroomList;
     }
 
-    private void initializationClouds(LinearLayoutCompat cloudLayout) {
-        List<ShapeableImageView> clouds_IMG_List = new ArrayList<>();
+    private List<LinearLayoutCompat> initialization(boolean isCloud){
 
-        for (int i = 0,j=0; i < cloudLayout.getChildCount(); i++) {
-            if(cloudLayout.getChildAt(i) instanceof ShapeableImageView){
-                ShapeableImageView temp= (ShapeableImageView) cloudLayout.getChildAt(i);
-                int cloudImageId =cloudLayout.getChildAt(i).getId();
-                clouds_IMG_List.add(temp);
-                clouds_IMG_List.get(j).findViewById(cloudImageId);
-                clouds_IMG_List.get(j++).setVisibility(View.INVISIBLE);
+        if(isCloud){
+            for (LinearLayoutCompat cloudLayout: layoutsCloudList) {
+                initializationLayout(cloudLayout);
+            }
+            return layoutsCloudList;
+        }
+        else {
+            for (LinearLayoutCompat broomLayout: layoutsBroomList) {
+                initializationLayout(broomLayout);
+            }
+            return layoutsBroomList;
+        }
+    }
+
+    private void initializationLayout(LinearLayoutCompat theLayout) {
+        List<ShapeableImageView> iMG_List = new ArrayList<>();
+
+        for (int i = 0,j=0; i < theLayout.getChildCount(); i++) {
+            if(theLayout.getChildAt(i) instanceof ShapeableImageView){
+                ShapeableImageView temp= (ShapeableImageView) theLayout.getChildAt(i);
+                int imageId =theLayout.getChildAt(i).getId();
+                iMG_List.add(temp);
+                iMG_List.get(j).findViewById(imageId);
+                iMG_List.get(j++).setVisibility(View.INVISIBLE);
             }
         }
     }
