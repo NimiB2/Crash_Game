@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Model.StartActivity">
+    tools:context=".StartActivity">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/start_IMG_background"
@@ -13,15 +13,15 @@
         android:alpha="0.5"/>
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/start_MTV_wellcome"
+        android:id="@+id/start_MTV_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="64sp"
+        android:textSize="@dimen/big_title_size"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:text="WELLCOME" />
+        android:layout_marginTop="@dimen/big_margin_default"
+        android:text="@string/welcome" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/start_BTN_start"
@@ -30,8 +30,8 @@
         android:layout_centerInParent="true"
         android:backgroundTint="@color/orange_300"
         android:textColor="@color/black"
-        android:textSize="@dimen/title_size"
-        android:text="Start" />
+        android:textSize="@dimen/text_size"
+        android:text="@string/start" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/start_BTN_record"
@@ -39,11 +39,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignTop="@id/start_BTN_start"
-        android:layout_marginTop="@dimen/table_margin"
+        android:layout_marginTop="@dimen/start_button_margin"
         android:backgroundTint="@color/orange_300"
         android:textColor="@color/black"
-        android:textSize="@dimen/title_size"
-        android:text="Top records" />
+        android:textSize="@dimen/text_size"
+        android:text="@string/top_records_button" />
 
 
 </RelativeLayout>

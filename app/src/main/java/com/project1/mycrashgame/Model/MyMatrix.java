@@ -11,26 +11,26 @@ import java.util.List;
 
 public class MyMatrix {
     private List<LinearLayoutCompat> layoutsCloudList;
-    private List<LinearLayoutCompat> layoutsBroomList;
+    private List<LinearLayoutCompat> layoutscauldronList;
 
 
 
     public MyMatrix() {
 
     }
-    public MyMatrix(List<LinearLayoutCompat> layoutsCloud,List<LinearLayoutCompat> layoutsBroom) {
+    public MyMatrix(List<LinearLayoutCompat> layoutsCloud,List<LinearLayoutCompat> layoutscauldron) {
         this.layoutsCloudList=layoutsCloud;
         this.layoutsCloudList= initialization(true);
-        this.layoutsBroomList=layoutsBroom;
-        this.layoutsBroomList= initialization(false);
+        this.layoutscauldronList=layoutscauldron;
+        this.layoutscauldronList= initialization(false);
     }
 
     public List<LinearLayoutCompat> getLayoutsCloudList() {
         return layoutsCloudList;
     }
 
-    public List<LinearLayoutCompat> getLayoutsBroomList() {
-        return layoutsBroomList;
+    public List<LinearLayoutCompat> getLayoutscauldronList() {
+        return layoutscauldronList;
     }
 
     private List<LinearLayoutCompat> initialization(boolean isCloud){
@@ -42,10 +42,10 @@ public class MyMatrix {
             return layoutsCloudList;
         }
         else {
-            for (LinearLayoutCompat broomLayout: layoutsBroomList) {
-                initializationLayout(broomLayout);
+            for (LinearLayoutCompat cauldronLayout: layoutscauldronList) {
+                initializationLayout(cauldronLayout);
             }
-            return layoutsBroomList;
+            return layoutscauldronList;
         }
     }
 

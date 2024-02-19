@@ -1,18 +1,14 @@
-package com.project1.mycrashgame.Model;
+package com.project1.mycrashgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
-import com.project1.mycrashgame.MainActivity;
-import com.project1.mycrashgame.R;
-import com.project1.mycrashgame.RecordsActivity;
 
 public class StartActivity extends AppCompatActivity {
     private ShapeableImageView start_IMG_background;
@@ -42,7 +38,7 @@ public class StartActivity extends AppCompatActivity {
 
     private void findViews() {
         start_IMG_background=findViewById(R.id.start_IMG_background);
-        start_MTV_wellcome=findViewById(R.id.start_MTV_wellcome);
+        start_MTV_wellcome=findViewById(R.id.start_MTV_welcome);
         start_BTN_start=findViewById(R.id.start_BTN_start);
         start_BTN_record=findViewById(R.id.start_BTN_record);
     }

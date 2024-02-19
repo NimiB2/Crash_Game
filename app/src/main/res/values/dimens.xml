@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="general_size_and_margin">50dp</dimen>
-    <dimen name="margin_cloud">16dp</dimen>
-    <dimen name="margin_default">16dp</dimen>
-    <dimen name="arrows_margin">50dp</dimen>
-    <dimen name="text_size">32sp</dimen>
-    <dimen name="table_margin">60dp</dimen>
-    <dimen name="title_size">20sp</dimen>
-    <dimen name="title_margin">90dp</dimen>
-    <dimen name="record_size">16sp</dimen>
-    <dimen name="player_record_margin">5dp</dimen>
+    <!-- layouts high -->
+    <dimen name="cloud_layout_high">630dp</dimen>
+    <dimen name="witches_layout_high">85dp</dimen>
+    <!-- sizes -->
+    <dimen name="main_frame_size">200dp</dimen>
+    <dimen name="start_button_margin">70dp</dimen>
+    <dimen name="big_margin_default">50dp</dimen>
+    <dimen name="small_margin_default">16dp</dimen>
+    <dimen name="elevation_and_padding">10dp</dimen>
+    <!-- text-->
+    <dimen name="big_title_size">64sp</dimen>
+    <dimen name="title_size">32sp</dimen>
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="small_text_size">16sp</dimen>
+
+
+
+
 </resources>

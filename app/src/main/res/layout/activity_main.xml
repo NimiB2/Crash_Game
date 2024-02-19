@@ -10,13 +10,13 @@
         android:id="@+id/main_IMG_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.4"/>
-
+        android:alpha="0.4" />
+    <!--MARK: WITCHES_LAYOUT-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/main_LAYOUT_witches"
-        android:layout_alignBottom="@id/main_LAYOUT_clouds"
         android:layout_width="match_parent"
-        android:layout_height="85dp"
+        android:layout_height="@dimen/witches_layout_high"
+        android:layout_alignBottom="@id/main_LAYOUT_clouds"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
@@ -55,12 +55,11 @@
             android:layout_weight="1"
             android:src="@drawable/witch2" />
     </androidx.appcompat.widget.LinearLayoutCompat>
-
-
+    <!--MARK: CLOUDS_LAYOUT-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/main_LAYOUT_clouds"
         android:layout_width="match_parent"
-        android:layout_height="630dp"
+        android:layout_height="@dimen/cloud_layout_high"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
         android:alpha="0.72">
@@ -69,56 +68,56 @@
             android:id="@+id/main_LAYOUT_cloud_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud00"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud01"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud02"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud03"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud04"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud05"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud06"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -127,56 +126,56 @@
             android:id="@+id/main_LAYOUT_cloud_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud10"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud11"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud12"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud13"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud14"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud15"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud16"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -185,56 +184,56 @@
             android:id="@+id/main_LAYOUT_cloud_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud20"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud21"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud22"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud23"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud24"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud25"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud26"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -244,56 +243,56 @@
             android:id="@+id/main_LAYOUT_cloud_3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud30"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud31"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud32"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud33"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud34"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud35"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud36"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -302,358 +301,358 @@
             android:id="@+id/main_LAYOUT_cloud_4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud40"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud41"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud42"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud43"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud44"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud45"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/main_IMG_cloud46"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
                 android:src="@drawable/cloud" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
+    <!--MARK: CAULDRONS_LAYOUT-->
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/main_LAYOUT_brooms"
+        android:id="@+id/main_LAYOUT_cauldrons"
         android:layout_width="match_parent"
         android:layout_height="630dp"
         android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        >
+        android:layout_centerVertical="true">
+
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/main_LAYOUT_broom_0"
+            android:id="@+id/main_LAYOUT_cauldron_0"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom00"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron00"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom01"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron01"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom02"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron02"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom03"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron03"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom04"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron04"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom05"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron05"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom06"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron06"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/main_LAYOUT_broom_1"
+            android:id="@+id/main_LAYOUT_cauldron_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom10"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron10"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom11"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron11"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom12"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron12"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom13"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron13"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom14"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron14"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom15"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron15"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom16"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron16"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/main_LAYOUT_broom_2"
+            android:id="@+id/main_LAYOUT_cauldron_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom20"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron20"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom21"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron21"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom22"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron22"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom23"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron23"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom24"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron24"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom25"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron25"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom26"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron26"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/main_LAYOUT_broom_3"
+            android:id="@+id/main_LAYOUT_cauldron_3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom30"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron30"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom31"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron31"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom32"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron32"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom33"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron33"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom34"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron34"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom35"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron35"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom36"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron36"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/main_LAYOUT_broom_4"
+            android:id="@+id/main_LAYOUT_cauldron_4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin_cloud"
+            android:layout_marginStart="@dimen/small_margin_default"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom40"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron40"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom41"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron41"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom42"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron42"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom43"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron43"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom44"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron44"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom45"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron45"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/main_IMG_broom46"
-                android:layout_width="@dimen/general_size_and_margin"
-                android:layout_height="@dimen/general_size_and_margin"
+                android:id="@+id/main_IMG_cauldron46"
+                android:layout_width="@dimen/big_margin_default"
+                android:layout_height="@dimen/big_margin_default"
                 android:layout_weight="1"
-                android:src="@drawable/broom" />
+                android:src="@drawable/cauldron" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -661,39 +660,40 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/main_LBL_score"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/general_size_and_margin"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="@dimen/text_size"
+        android:layout_height="@dimen/big_margin_default"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/margin_default"
-        android:layout_marginStart="@dimen/margin_default"
-        android:text="000" />
+        android:layout_marginStart="@dimen/small_margin_default"
+        android:layout_marginTop="@dimen/small_margin_default"
+        android:text="@string/score_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold" />
 
+    <!--MARK: HATS_LAYOUT-->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/hats"
         android:layout_width="150dp"
-        android:layout_height="@dimen/general_size_and_margin"
-        android:layout_marginTop="@dimen/margin_default"
+        android:layout_height="@dimen/big_margin_default"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginTop="@dimen/small_margin_default"
+        android:layout_marginEnd="@dimen/small_margin_default"
         android:orientation="horizontal">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/main_IMG_hat0"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
             android:layout_weight="1"
+            android:scaleType="fitCenter"
             android:src="@drawable/hat2" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/main_IMG_hat1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/small_margin_default"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:layout_marginHorizontal="@dimen/margin_default"
             android:src="@drawable/hat2" />
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -705,29 +705,74 @@
             android:src="@drawable/hat2" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/main_FAB_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/big_margin_default"
+        android:layout_marginBottom="@dimen/small_margin_default"
+        android:backgroundTint="@color/deep_purple300"
+        android:clickable="true"
+        app:icon="@drawable/arrow_left" />
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/main_FAB_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/margin_default"
-            android:layout_marginStart="@dimen/general_size_and_margin"
-            android:backgroundTint="@color/purple200"
-            android:clickable="true"
-            app:icon="@drawable/arrow_left" />
+        android:id="@+id/main_FAB_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/big_margin_default"
+        android:layout_marginBottom="@dimen/small_margin_default"
+        android:backgroundTint="@color/deep_purple300"
+        android:clickable="true"
+        app:icon="@drawable/arrow_right" />
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/main_FAB_right"
+    <!--MARK: FRAM_LAYOUT-->
+    <FrameLayout
+        android:id="@+id/main_FRAME_name"
+        android:layout_width="@dimen/main_frame_size"
+        android:layout_height="@dimen/main_frame_size"
+        android:elevation="@dimen/elevation_and_padding"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@color/white">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/small_margin_default"
+            android:layout_marginTop="@dimen/small_margin_default"
+            android:text="@string/insert_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/main_EDITTEXT_newName"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:inputType="text"
+            android:text="" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/main_BTN_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/margin_default"
-            android:layout_marginEnd="@dimen/general_size_and_margin"
-            android:layout_alignParentEnd="true"
-            android:backgroundTint="@color/purple200"
-            android:clickable="true"
-            app:icon="@drawable/arrow_right" />
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginBottom="@dimen/small_margin_default"
+            android:backgroundTint="@color/deep_purple300"
+            android:text="@string/submit"
+            android:textColor="@color/black" />
+
+
+    </FrameLayout>
 
 
 </RelativeLayout>

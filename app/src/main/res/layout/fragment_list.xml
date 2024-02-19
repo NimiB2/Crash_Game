@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Views.ListFragment"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/record_MTV_main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/small_margin_default"
+        android:text="@string/record_title"
+        android:textColor="@color/black"
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_RECYCLER_itemList"
+        android:layout_width="@dimen/main_frame_size"
+        android:layout_height="wrap_content"
+       android:layout_below="@id/record_MTV_main_title"
+        android:layout_marginTop="@dimen/small_margin_default"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
