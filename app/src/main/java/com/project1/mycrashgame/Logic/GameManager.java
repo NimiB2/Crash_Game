@@ -40,7 +40,6 @@ public class GameManager {
         this.numOfRows=this.myMatrix.getLayoutsCloudList().get(0).getChildCount();
         this.witchVisibleIndex=this.numOfColumns/2;
         this.advanceMatrix= new int[this.numOfRows][this.numOfColumns];
-        player=new Player();
     }
 
     public GameManager(ArrayList<LinearLayoutCompat> main_All_Layouts_Of_Cloud,ArrayList<LinearLayoutCompat> main_All_Layouts_Of_cauldron, int life) {
@@ -50,7 +49,6 @@ public class GameManager {
         this.numOfRows=this.myMatrix.getLayoutsCloudList().get(0).getChildCount();
         this.witchVisibleIndex=this.numOfColumns/2;
         this.advanceMatrix= new int[this.numOfRows][this.numOfColumns];
-        player=new Player();
     }
 
     public int[][] getAdvanceMatrix() {
@@ -62,10 +60,6 @@ public class GameManager {
     }
     public int getNumOfRows() {
         return numOfRows;
-    }
-
-    public int getLife() {
-        return this.life;
     }
 
     public int getNumOfCrush() {
@@ -105,25 +99,23 @@ public class GameManager {
 
     }
 
-    public DataBase getDataBase() {
-        return dataBase;
-    }
-
     public void setDataBase() {
+        this.dataBase= new Gson().fromJson(SharedPreferencesManager.getInstance().getString(RECOREDS_LIST,""),DataBase.class );
+
         if (dataBase==null){
             this.dataBase=new DataBase();
         }
-        this.dataBase= new Gson().fromJson(SharedPreferencesManager.getInstance().getString(RECOREDS_LIST,""),DataBase.class );
+
     }
 
     public Player getPlayer() {
         return player;
     }
 
-    public void setPlayer(String name,double lat,double lon) {
-        this.player = player
+    public void setPlayer(String name,int score,double lat,double lon) {
+        this.player = new Player()
                 .setName(name)
-                .setScore(getScore())
+                .setScore(score)
                 .setLon(lon)
                 .setLat(lat);
     }
@@ -131,11 +123,12 @@ public class GameManager {
     public void addPlayerToDB(Context context){
         setDataBase();
         this.dataBase.addRecord(this.getPlayer());
+        this.player.setPosition(DataBase.getRecords().indexOf(this.player));
         String spDB= new Gson().toJson(this.dataBase);
         SharedPreferencesManager.getInstance().putString(RECOREDS_LIST,spDB);
     }
 
     public boolean isGameOver(){
-        return getLife()== getNumOfCrush();
+        return this.life== this.numOfCrush;
     }
 }

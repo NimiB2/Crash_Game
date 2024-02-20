@@ -16,7 +16,6 @@ import com.project1.mycrashgame.Views.MapsFragment;
 public class RecordsActivity extends AppCompatActivity {
     private FrameLayout record_FRAME_list;
     private FrameLayout record_FRAME_map;
-
     private ListFragment listFragment;
     private MapsFragment mapsFragment;
     private ShapeableImageView list_IMG_background;
@@ -32,12 +31,12 @@ public class RecordsActivity extends AppCompatActivity {
         initBackground();
         map_BTN_back.setOnClickListener(v -> changeToStartActivity());
         initFragments();
-        listFragment.setCallbackRecordClicked(new Callback_recordClicked() {
-            @Override
-            public void getRecordMap(double lat, double lon) {
-                MapsFragment.zoom(lat,lon);
-            }
-        })
+//        listFragment.setCallbackRecordClicked(new Callback_recordClicked() {
+//            @Override
+//            public void getRecordMap(double lat, double lon) {
+//                MapsFragment.zoom(lat,lon);
+//            }
+//        })
 
 
 

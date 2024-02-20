@@ -22,8 +22,6 @@ import com.project1.mycrashgame.Utilities.MySignal;
 import com.project1.mycrashgame.Utilities.MyTImer;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private final int cauldron_STATUS = 1;
     private final int CLOUD_VALUE = 1;
     private final int cauldron_VALUE = 2;
+    private MyTImer myTImer;
     Gson gson = new Gson();
     private ArrayList<LinearLayoutCompat> main_All_Layouts_Of_cauldron = new ArrayList<>();
     private ArrayList<ShapeableImageView> main_IMG_hats = new ArrayList<>();
@@ -45,15 +44,14 @@ public class MainActivity extends AppCompatActivity {
     private MaterialTextView main_LBL_score;
     private FrameLayout main_FRAME_name;
     private EditText main_EDITTEXT_newName;
-
     private GameManager gameManager;
     private MyMatrix myMatrix;
     private int numOfWitches;
     private int life;
     private int numOfRowsInCloudMatrix, numOfColsInCloudMatrix;
     private DataBase dataBase = new DataBase();
-    private double lat;
-    private double lon;
+    private double lat = 0;
+    private double lon = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initGame();
         startGame();
+
     }
 
     private void initGame() {
@@ -86,27 +85,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startGame() {
-        startRunClouds();
+        myTImer = new MyTImer(() -> {
+            runOnUiThread(()->updateTimerUI());
+        });
+        myTImer.timerOn();
+
+    }
+
+    private void updateTimerUI() {
+        startRunItems();
         startOdometer();
     }
 
     private void startOdometer() {
-        new MyTImer(() -> {
-            gameManager.setScore(DISTANCE_STATUS);
-            main_LBL_score.setText(gameManager.getScore() + "");
-        }).timerOn();
+        gameManager.setScore(DISTANCE_STATUS);
+        main_LBL_score.setText(gameManager.getScore() + "");
+
     }
 
-    private void startRunClouds() {
-        new MyTImer(() -> {
-            advanceInMatrix();
-            initNewCloudDown(myMatrix);
-        }).timerOn();
-
+    private void startRunItems() {
+            advanceItemsInMatrix();
+            initNewItemDown(myMatrix);
     }
 
     // MARK: ADVAACE_IN_MATRIX
-    private void advanceInMatrix() {
+    private void advanceItemsInMatrix() {
         int preValue;
         for (int currentCol = 0; currentCol <= numOfColsInCloudMatrix; currentCol++) {
             for (int currentRow = numOfRowsInCloudMatrix; currentRow >= 0; currentRow--) {
@@ -128,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                         View nextCloud = myMatrix.getLayoutsCloudList().get(currentCol).getChildAt(currentRow + 1);
                         nextCloud.setVisibility(View.VISIBLE);
                     } else {
-                        checkCrush(currentCol, currentValue);
+                        checkIfCrush(currentCol, currentValue);
                     }
 
                 }
@@ -139,14 +142,14 @@ public class MainActivity extends AppCompatActivity {
                         View nextcauldron = myMatrix.getLayoutscauldronList().get(currentCol).getChildAt(currentRow + 1);
                         nextcauldron.setVisibility(View.VISIBLE);
                     } else {
-                        checkCrush(currentCol, currentValue);
+                        checkIfCrush(currentCol, currentValue);
                     }
                 }
             }
         }
     }
 
-    private void initNewCloudDown(MyMatrix myMatrix) {
+    private void initNewItemDown(MyMatrix myMatrix) {
         int max = myMatrix.getLayoutsCloudList().size() - 1;
         int randomIndex = (int) Math.floor(Math.random() * max * 2);
         if (randomIndex <= max) {
@@ -158,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void checkCrush(int currentCol, int currentValue) {
+    private void checkIfCrush(int currentCol, int currentValue) {
         int currentWitch = gameManager.getWitchVisibleIndex();
 
         if (currentCol == currentWitch) {
@@ -167,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 gameManager.setScore(cauldron_STATUS);
             }
-            MySignal.getInstance().vibrate(VIBRATION);
             toast(currentValue);
+            MySignal.getInstance().vibrate(VIBRATION);
         }
     }
 
@@ -185,40 +188,41 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // MARK: UPDATE_UI
+    // MARK: UPDATE_UI_CRUSH
     private void updateCrushUI() {
         int currentNumOfCrush = gameManager.getNumOfCrush();
-
-        main_IMG_hats.get(currentNumOfCrush).setVisibility(View.INVISIBLE);
         gameManager.updateNumOfCrush();
         if (gameManager.isGameOver()) {
             gameOver();
             main_FRAME_name.setVisibility(View.VISIBLE);
-            main_BTN_submit.setOnClickListener(v -> saveThePlayer());
-            changeActivity(gameManager.getScore());
+        } else {
+            main_IMG_hats.get(currentNumOfCrush).setVisibility(View.INVISIBLE);
         }
-
     }
 
-    private void saveThePlayer() {
+    private void saveThePlayer(int score) {
         String playerName = main_EDITTEXT_newName.getText().toString();
-        gameManager.setPlayer(playerName, lat, lon);
+        gameManager.setPlayer(playerName, score, lat, lon);
         gameManager.addPlayerToDB(this);
+
+        if (!main_EDITTEXT_newName.getText().toString().isEmpty()) {
+            changeActivity();
+        }
     }
 
-    private void changeActivity(int score) {
+    private void changeActivity() {
         Intent recordIntent = new Intent(this, RecordsActivity.class);
         startActivity(recordIntent);
         finish();
     }
 
-
     private void initButtonListeners() {
-        main_FAB_left.setOnClickListener(v -> checkWitch(getString(R.string.left)));
-        main_FAB_right.setOnClickListener(v -> checkWitch(getString(R.string.right)));
+        main_FAB_left.setOnClickListener(v -> checkWitchMove(getString(R.string.left)));
+        main_FAB_right.setOnClickListener(v -> checkWitchMove(getString(R.string.right)));
+        main_BTN_submit.setOnClickListener(v -> saveThePlayer(gameManager.getScore()));
     }
 
-    private void checkWitch(String direction) {
+    private void checkWitchMove(String direction) {
         int witchVisibleIndex = gameManager.getWitchVisibleIndex();
 
         if (direction.equals(getString(R.string.right))) {
@@ -297,6 +301,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gameOver() {
-   new MyTImer(()->{}).timerOff();
+        if (myTImer != null)
+            myTImer.timerOff();
+        myTImer=null;
     }
 }

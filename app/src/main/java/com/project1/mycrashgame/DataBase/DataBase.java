@@ -4,16 +4,16 @@ import com.project1.mycrashgame.Model.Player;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Iterator;
 
 public class DataBase {
-    private final int MAX_RECORDS=10;
-    private ArrayList<Player> records = new ArrayList<>();
+    private final int MAX_RECORDS = 10;
+    public static ArrayList<Player> records = new ArrayList<>();
+
 
     public DataBase() {
     }
 
-    public ArrayList<Player> getRecords() {
+    public static ArrayList<Player> getRecords() {
         return records;
     }
 
@@ -21,21 +21,22 @@ public class DataBase {
         this.records = records;
         return this;
     }
-    public DataBase addRecord(Player player){
-        if(this.records.size()==MAX_RECORDS){
+
+    public void addRecord(Player player){
+        if(records.size()== MAX_RECORDS){
             removeRecord();
         }
-        this.records.add(player);
+        records.add(player);
         sortRecords();
-        return this;
     }
 
+
     public void removeRecord(){
-       this.records.remove(this.records.size()-1);
+       records.remove(records.size()-1);
     }
 
     public void sortRecords(){
-    this.records.sort(Comparator.comparing(Player::getScore).thenComparing(Player::getName));
+    records.sort(Comparator.comparing(Player::getScore).reversed().thenComparing(Player::getName));
     }
 
     @Override
