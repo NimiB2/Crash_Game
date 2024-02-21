@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
     android:layout_marginTop="@dimen/small_margin_default"
@@ -12,7 +12,7 @@
         android:id="@+id/player_MTV_index"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/small_margin_default"
+        android:layout_marginStart="@dimen/start_button_margin"
         android:textSize="@dimen/small_text_size"
         android:layout_marginTop="@dimen/small_margin_default"
         android:textColor="@color/black"
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/player_MTV_index"
-        android:layout_marginStart="@dimen/big_margin_default"
+        android:layout_marginStart="@dimen/small_margin_default"
         android:layout_marginTop="@dimen/small_margin_default"
         android:textSize="@dimen/small_text_size"
         android:textColor="@color/black"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/player_MTV_name"
-        android:layout_marginStart="@dimen/main_frame_size"
+        android:layout_marginStart="@dimen/score_txt_margin_start"
         android:layout_marginTop="@dimen/small_margin_default"
         android:textSize="@dimen/small_text_size"
         android:textColor="@color/black"
@@ -43,10 +43,11 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/player_IMG_playerMap"
-        android:layout_width="@dimen/big_margin_default"
-        android:layout_height="@dimen/big_margin_default"
+        android:layout_width="@dimen/small_margin_default"
+        android:layout_height="@dimen/small_margin_default"
+        android:layout_marginTop="@dimen/map_image_margin_top"
         android:scaleType="centerCrop"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/small_margin_default"
+        android:layout_marginStart="@dimen/big_margin_default"
+        android:layout_alignStart="@id/player_MTV_score"
         android:src="@drawable/map" />
 </RelativeLayout>

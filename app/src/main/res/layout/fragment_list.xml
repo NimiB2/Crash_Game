@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
        android:layout_below="@id/record_MTV_main_title"
         android:layout_marginTop="@dimen/small_margin_default"
+        android:layout_marginStart="@dimen/big_margin_default"
         android:layout_centerHorizontal="true"
         tools:listitem="@layout/player_record"
         />
