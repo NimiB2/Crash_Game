@@ -1,6 +1,7 @@
 package com.project1.mycrashgame.Logic;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.appcompat.widget.LinearLayoutCompat;
 
@@ -20,7 +21,7 @@ public class GameManager {
     private  int life;
     private int score=0;
     private Player player;
-
+    private Gson gson;
     private DataBase dataBase;
     private int [][] advanceMatrix;
     private MyMatrix myMatrix;
@@ -99,13 +100,12 @@ public class GameManager {
 
     }
 
-    public void setDataBase() {
-        this.dataBase= new Gson().fromJson(SharedPreferencesManager.getInstance().getString(RECOREDS_LIST,""),DataBase.class );
-
+    public void setDataBase(Gson gson) {
+        String fromSP=SharedPreferencesManager.getInstance().getString(RECOREDS_LIST,"");
+        this.dataBase= gson.fromJson(fromSP,DataBase.class );
         if (dataBase==null){
             this.dataBase=new DataBase();
         }
-
     }
 
     public Player getPlayer() {
@@ -120,13 +120,16 @@ public class GameManager {
                 .setLat(lat);
     }
 
-    public void addPlayerToDB(Context context){
-        setDataBase();
+    public void addPlayerToDB(){
+        gson=new Gson();
+        setDataBase(gson);
         this.dataBase.addRecord(this.getPlayer());
-        this.player.setPosition(DataBase.getRecords().indexOf(this.player));
-        String spDB= new Gson().toJson(this.dataBase);
+        this.player.setPosition(this.dataBase.getRecords().indexOf(this.player));
+        String spDB= gson.toJson(this.dataBase);
         SharedPreferencesManager.getInstance().putString(RECOREDS_LIST,spDB);
     }
+
+
 
     public boolean isGameOver(){
         return this.life== this.numOfCrush;

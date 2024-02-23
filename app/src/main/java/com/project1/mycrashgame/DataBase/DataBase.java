@@ -7,13 +7,14 @@ import java.util.Comparator;
 
 public class DataBase {
     private final int MAX_RECORDS = 10;
-    public static ArrayList<Player> records = new ArrayList<>();
+    private  ArrayList<Player> records ;
 
 
     public DataBase() {
+        records = new ArrayList<>();
     }
 
-    public static ArrayList<Player> getRecords() {
+    public  ArrayList<Player> getRecords() {
         return records;
     }
 
@@ -39,10 +40,4 @@ public class DataBase {
     records.sort(Comparator.comparing(Player::getScore).reversed().thenComparing(Player::getName));
     }
 
-    @Override
-    public String toString() {
-        return "DataBase{" +
-                "records=" + records +
-                '}';
-    }
 }

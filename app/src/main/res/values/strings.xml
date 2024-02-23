@@ -17,4 +17,6 @@
     <string name="main">Main</string>
     <string name="start">Start</string>
     <string name="top_records_button">Top records</string>
+    <string name="my_api_key">AIzaSyD5Wug4R_NGNkenwpLFk4WlBeQ5Y2CQ5OU</string>
+    <string name="play_again">play_again</string>
 </resources>

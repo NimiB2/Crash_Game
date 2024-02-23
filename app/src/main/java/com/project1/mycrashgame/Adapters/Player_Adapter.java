@@ -10,19 +10,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
+import com.project1.mycrashgame.Interfaces.Callback_recordClicked;
 import com.project1.mycrashgame.Model.Player;
 import com.project1.mycrashgame.R;
 
 import java.util.ArrayList;
 
 public class Player_Adapter extends RecyclerView.Adapter<Player_Adapter.PlayerViewHolder> {
-    ArrayList<Player> players;
-    Context context;
+    private ArrayList<Player> players;
+    private Context context;
+    private Callback_recordClicked callbackRecordClicked;
 
-    public Player_Adapter(ArrayList<Player> players, Context context) {
+    public Player_Adapter(Callback_recordClicked callbackRecordClicked, ArrayList<Player> players, Context context) {
         this.players = players;
+        this.callbackRecordClicked=callbackRecordClicked;
         this.context = context;
     }
+//    public Player_Adapter setCallbackRecordClicked(Callback_recordClicked callbackRecordClicked) {
+//        this.callbackRecordClicked = callbackRecordClicked;
+//        return this;
+//    }
 
     @NonNull
     @Override
@@ -39,20 +46,28 @@ public class Player_Adapter extends RecyclerView.Adapter<Player_Adapter.PlayerVi
         holder.player_MTV_score.setText(String.valueOf(player.getScore()));
 
     }
+    public void setCallback(Callback_recordClicked callbackRecordClicked) {
+       this.callbackRecordClicked= callbackRecordClicked;
+    }
 
     @Override
     public int getItemCount() {
         return players == null ? 0 : players.size();
     }
 
-    public  Player getPlayer(int position){
+    public void setData(ArrayList<Player> players) {
+        this.players = players;
+    }
+
+    private Player getPlayer(int position){
        return players.get(position);
     }
     public class PlayerViewHolder extends RecyclerView.ViewHolder {
-        private MaterialTextView player_MTV_index;
+        private final MaterialTextView player_MTV_index;
         private MaterialTextView player_MTV_name;
         private MaterialTextView player_MTV_score;
         private ShapeableImageView player_IMG_playerMap;
+
 
         public PlayerViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +76,14 @@ public class Player_Adapter extends RecyclerView.Adapter<Player_Adapter.PlayerVi
             player_MTV_score = itemView.findViewById(R.id.player_MTV_score);
             player_IMG_playerMap = itemView.findViewById(R.id.player_IMG_playerMap);
 
+            player_IMG_playerMap.setOnClickListener(v->
+            {
+                if (callbackRecordClicked != null) {
+                    Player p = getPlayer(getAdapterPosition());
+                    callbackRecordClicked.getRecordMap(p.getLat(), p.getLon(), p.getName());
+                }
+            });
         }
+
     }
 }

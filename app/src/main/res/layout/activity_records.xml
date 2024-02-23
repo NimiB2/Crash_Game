@@ -12,13 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="@dimen/elevation_and_padding">
+        >
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/list_IMG_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.5" />
+            android:alpha="0.4"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@drawable/bg"/>
 
 
     </FrameLayout>
@@ -31,15 +33,38 @@
         android:padding="@dimen/elevation_and_padding">
 
     </FrameLayout>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/map_BTN_back"
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/orange_300"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="@dimen/small_margin_default"
-        android:textColor="@color/black"
-        android:textSize="@dimen/small_text_size"
-        android:text="@string/main"
-        />
+        android:layout_gravity="bottom|center"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/map_BTN_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/small_margin_default"
+            android:layout_marginBottom="@dimen/small_margin_default"
+            android:backgroundTint="@color/orange_300"
+            android:text="@string/main"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/map_BTN_play_again"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/small_margin_default"
+            android:layout_marginBottom="@dimen/small_margin_default"
+            android:backgroundTint="@color/orange_300"
+            android:text="@string/play_again"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size" />
+    </RelativeLayout>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

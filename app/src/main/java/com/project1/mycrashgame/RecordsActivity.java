@@ -9,7 +9,6 @@ import android.widget.FrameLayout;
 import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
-import com.project1.mycrashgame.Interfaces.Callback_recordClicked;
 import com.project1.mycrashgame.Views.ListFragment;
 import com.project1.mycrashgame.Views.MapsFragment;
 
@@ -21,6 +20,7 @@ public class RecordsActivity extends AppCompatActivity {
     private ShapeableImageView list_IMG_background;
     private MaterialButton map_BTN_back;
 
+    private  MaterialButton map_BTN_play_again;
 
 
     @Override
@@ -28,16 +28,10 @@ public class RecordsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_records);
         findViews();
+        initFragments();
         initBackground();
         map_BTN_back.setOnClickListener(v -> changeToStartActivity());
-        initFragments();
-//        listFragment.setCallbackRecordClicked(new Callback_recordClicked() {
-//            @Override
-//            public void getRecordMap(double lat, double lon) {
-//                MapsFragment.zoom(lat,lon);
-//            }
-//        })
-
+        map_BTN_play_again.setOnClickListener(v->changeToMainActivity());
 
 
     }
@@ -46,9 +40,12 @@ public class RecordsActivity extends AppCompatActivity {
     private void initFragments() {
         listFragment = new ListFragment();
         mapsFragment = new MapsFragment();
+        mapsFragment.setOnMapReadyCallback(() -> mapsFragment.zoom(32.014785, 34.787335, "start"));
+        listFragment.setCallback((lat, lon, playerName) -> mapsFragment.zoom(lat, lon, playerName));
         getSupportFragmentManager().beginTransaction().add(R.id.record_FRAME_list,listFragment).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.record_FRAME_map,mapsFragment).commit();
     }
+
 
     private void changeToStartActivity() {
         Intent startIntent = new Intent(this, StartActivity.class);
@@ -56,9 +53,16 @@ public class RecordsActivity extends AppCompatActivity {
         finish();
     }
 
+    private void changeToMainActivity() {
+        Intent mainIntent = new Intent(this, MainActivity.class);
+        startActivity(mainIntent);
+        finish();
+    }
+
     private void findViews() {
         list_IMG_background = findViewById(R.id.list_IMG_background);
         map_BTN_back = findViewById(R.id.map_BTN_back);
+        map_BTN_play_again =findViewById(R.id.map_BTN_play_again);
         record_FRAME_list = findViewById(R.id.record_FRAME_list);
         record_FRAME_map = findViewById(R.id.record_FRAME_map);
     }
@@ -67,8 +71,7 @@ public class RecordsActivity extends AppCompatActivity {
     private void initBackground() {
         Glide
                 .with(this)
-                .load(R.drawable.bord2)
-                .centerCrop()
+                .load(R.drawable.bg)
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(list_IMG_background);
     }

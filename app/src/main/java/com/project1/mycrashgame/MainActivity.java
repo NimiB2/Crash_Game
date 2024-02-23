@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
     private void saveThePlayer(int score) {
         String playerName = main_EDITTEXT_newName.getText().toString();
         gameManager.setPlayer(playerName, score, lat, lon);
-        gameManager.addPlayerToDB(this);
+        gameManager.addPlayerToDB();
 
         if (!main_EDITTEXT_newName.getText().toString().isEmpty()) {
             changeActivity();

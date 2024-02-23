@@ -16,6 +16,7 @@
         android:textSize="@dimen/small_text_size"
         android:layout_marginTop="@dimen/small_margin_default"
         android:textColor="@color/black"
+        android:textStyle="bold"
         android:text="1." />
 
 
@@ -27,6 +28,7 @@
         android:layout_marginStart="@dimen/small_margin_default"
         android:layout_marginTop="@dimen/small_margin_default"
         android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:text="@string/name_edit" />
 
@@ -38,6 +40,7 @@
         android:layout_marginStart="@dimen/score_txt_margin_start"
         android:layout_marginTop="@dimen/small_margin_default"
         android:textSize="@dimen/small_text_size"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:text="@string/score_title" />
 
