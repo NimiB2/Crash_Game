@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.project1.mycrashgame.Views.ListFragment;
@@ -17,10 +18,10 @@ public class RecordsActivity extends AppCompatActivity {
     private FrameLayout record_FRAME_map;
     private ListFragment listFragment;
     private MapsFragment mapsFragment;
-    private ShapeableImageView list_IMG_background;
+    private ShapeableImageView frameList_IMG_background;
     private MaterialButton map_BTN_back;
 
-    private  MaterialButton map_BTN_play_again;
+    private MaterialButton map_BTN_play_again;
 
 
     @Override
@@ -31,7 +32,7 @@ public class RecordsActivity extends AppCompatActivity {
         initFragments();
         initBackground();
         map_BTN_back.setOnClickListener(v -> changeToStartActivity());
-        map_BTN_play_again.setOnClickListener(v->changeToMainActivity());
+        map_BTN_play_again.setOnClickListener(v -> changeToMainActivity());
 
 
     }
@@ -40,10 +41,10 @@ public class RecordsActivity extends AppCompatActivity {
     private void initFragments() {
         listFragment = new ListFragment();
         mapsFragment = new MapsFragment();
-        mapsFragment.setOnMapReadyCallback(() -> mapsFragment.zoom(32.014785, 34.787335, "start"));
+//        mapsFragment.setOnMapReadyCallback(() -> mapsFragment.zoom(32.014785, 34.787335, "start"));
         listFragment.setCallback((lat, lon, playerName) -> mapsFragment.zoom(lat, lon, playerName));
-        getSupportFragmentManager().beginTransaction().add(R.id.record_FRAME_list,listFragment).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.record_FRAME_map,mapsFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.record_FRAME_list, listFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.record_FRAME_map, mapsFragment).commit();
     }
 
 
@@ -60,11 +61,12 @@ public class RecordsActivity extends AppCompatActivity {
     }
 
     private void findViews() {
-        list_IMG_background = findViewById(R.id.list_IMG_background);
+        frameList_IMG_background = findViewById(R.id.frameList_IMG_background);
         map_BTN_back = findViewById(R.id.map_BTN_back);
-        map_BTN_play_again =findViewById(R.id.map_BTN_play_again);
+        map_BTN_play_again = findViewById(R.id.map_BTN_play_again);
         record_FRAME_list = findViewById(R.id.record_FRAME_list);
         record_FRAME_map = findViewById(R.id.record_FRAME_map);
+        Glide.with(this).clear(frameList_IMG_background);
     }
 
 
@@ -72,8 +74,11 @@ public class RecordsActivity extends AppCompatActivity {
         Glide
                 .with(this)
                 .load(R.drawable.bg)
+                .centerCrop()
                 .placeholder(R.drawable.ic_launcher_background)
-                .into(list_IMG_background);
-    }
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .into(frameList_IMG_background);
 
+    }
 }

@@ -15,6 +15,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.Gson;
+import com.project1.mycrashgame.Interfaces.Callback_Timer;
 import com.project1.mycrashgame.Logic.GameManager;
 import com.project1.mycrashgame.DataBase.DataBase;
 import com.project1.mycrashgame.Model.MyMatrix;
@@ -50,16 +51,20 @@ public class MainActivity extends AppCompatActivity {
     private int life;
     private int numOfRowsInCloudMatrix, numOfColsInCloudMatrix;
     private DataBase dataBase = new DataBase();
-    private double lat = 0;
-    private double lon = 0;
+    private double lat = 32.81841;
+    private double lon = 34.9885;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initGame();
-        startGame();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        startGame();
     }
 
     private void initGame() {
@@ -74,6 +79,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        myTImer.timerOn();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        myTImer.timerOff();
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         gameOver();
@@ -85,10 +102,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startGame() {
-        myTImer = new MyTImer(() -> {
-            runOnUiThread(()->updateTimerUI());
-        });
-        myTImer.timerOn();
+        Callback_Timer callBack_timer = new Callback_Timer() {
+            @Override
+            public void tick() {
+                runOnUiThread(() -> updateTimerUI());
+            }};
+            myTImer= new MyTImer(callBack_timer);
 
     }
 
@@ -170,22 +189,24 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 gameManager.setScore(cauldron_STATUS);
             }
-            toast(currentValue);
-            MySignal.getInstance().vibrate(VIBRATION);
+            addEffects(currentValue);
+
         }
     }
 
-    private void toast(int currentValue) {
-
+    private void addEffects(int currentValue) {
         if (currentValue == CLOUD_VALUE) {
+            MySignal.getInstance().sound(R.raw.melting);
             if (gameManager.isGameOver()) {
                 MySignal.getInstance().toast(getString(R.string.end_game_toast));
             } else {
                 MySignal.getInstance().toast(getString(R.string.crush_toast));
             }
         } else {
+            MySignal.getInstance().sound(R.raw.happy);
             MySignal.getInstance().toast(getString(R.string.cauldron_toast));
         }
+        MySignal.getInstance().vibrate(VIBRATION);
     }
 
     // MARK: UPDATE_UI_CRUSH
@@ -292,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
         main_LAYOUT_Of_Witches.add(findViewById(R.id.main_IMG_witch3));
         main_LAYOUT_Of_Witches.add(findViewById(R.id.main_IMG_witch4));
 
+
     }
 
     private void gameSizes() {
@@ -301,8 +323,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gameOver() {
-        if (myTImer != null)
             myTImer.timerOff();
-        myTImer=null;
     }
 }

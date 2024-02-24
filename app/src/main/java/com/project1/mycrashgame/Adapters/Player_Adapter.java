@@ -26,10 +26,7 @@ public class Player_Adapter extends RecyclerView.Adapter<Player_Adapter.PlayerVi
         this.callbackRecordClicked=callbackRecordClicked;
         this.context = context;
     }
-//    public Player_Adapter setCallbackRecordClicked(Callback_recordClicked callbackRecordClicked) {
-//        this.callbackRecordClicked = callbackRecordClicked;
-//        return this;
-//    }
+
 
     @NonNull
     @Override

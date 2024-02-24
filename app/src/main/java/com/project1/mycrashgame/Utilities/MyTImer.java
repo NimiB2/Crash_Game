@@ -9,7 +9,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MyTImer {
-    private static final long DELAY = 600;
+    private static final long DELAY = 800;
     private Timer timer ;
     private Callback_Timer callbackTimer;
 

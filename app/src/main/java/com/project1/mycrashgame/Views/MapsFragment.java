@@ -36,7 +36,6 @@ public class MapsFragment extends Fragment {
                 onMapReadyCallback = null;
             }
         });
-        //findViews(view);
 
         return view;
     }
