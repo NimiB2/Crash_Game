@@ -73,7 +73,7 @@ public class RecordsActivity extends AppCompatActivity {
         Glide
                 .with(this)
                 .load(R.drawable.bg)
-                .centerCrop()
+//                .centerCrop()
                 .placeholder(R.drawable.ic_launcher_background)
                 .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
