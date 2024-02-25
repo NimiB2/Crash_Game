@@ -1,15 +1,19 @@
 package com.project1.mycrashgame;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -22,9 +26,12 @@ import com.project1.mycrashgame.Model.MyMatrix;
 import com.project1.mycrashgame.Utilities.MySignal;
 import com.project1.mycrashgame.Utilities.MyTImer;
 
+import com.google.android.gms.location.LocationServices;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int REQUEST_LOCATION_PERMISSION = 1;
 
     private static final long VIBRATION = 500;
     private static final int MOVE_RIGHT = 1;
@@ -32,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private final int DISTANCE_STATUS = 0;
     private final int cauldron_STATUS = 1;
     private final int CLOUD_VALUE = 1;
-    private final int cauldron_VALUE = 2;
+    private final int CAULDRON_VALUE = 2;
+    private final int LOCATION_VALUE = 3;
     private MyTImer myTImer;
     Gson gson = new Gson();
     private ArrayList<LinearLayoutCompat> main_All_Layouts_Of_cauldron = new ArrayList<>();
@@ -51,14 +59,17 @@ public class MainActivity extends AppCompatActivity {
     private int life;
     private int numOfRowsInCloudMatrix, numOfColsInCloudMatrix;
     private DataBase dataBase = new DataBase();
-    private double lat = 32.81841;
-    private double lon = 34.9885;
+
+    private FusedLocationProviderClient fusedLocationClient;
+    private double lat;
+    private double lon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initGame();
+
     }
 
     @Override
@@ -76,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         myMatrix = gameManager.getMyMatrix();
         gameSizes();
         setVisibility();
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
     }
 
     @Override
@@ -106,8 +118,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void tick() {
                 runOnUiThread(() -> updateTimerUI());
-            }};
-            myTImer= new MyTImer(callBack_timer);
+            }
+        };
+        myTImer = new MyTImer(callBack_timer);
 
     }
 
@@ -123,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startRunItems() {
-            advanceItemsInMatrix();
-            initNewItemDown(myMatrix);
+        advanceItemsInMatrix();
+        initNewItemDown(myMatrix);
     }
 
     // MARK: ADVAACE_IN_MATRIX
@@ -154,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
-                if (currentValue == cauldron_VALUE) {
+                if (currentValue == CAULDRON_VALUE) {
                     View currentcauldron = myMatrix.getLayoutscauldronList().get(currentCol).getChildAt(currentRow);
                     currentcauldron.setVisibility(View.INVISIBLE);
                     if (currentRow + 1 <= numOfRowsInCloudMatrix) {
@@ -176,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
             myMatrix.getLayoutsCloudList().get(randomIndex).getChildAt(0).setVisibility(View.VISIBLE);
         } else {
             myMatrix.getLayoutscauldronList().get(randomIndex % (max + 1)).getChildAt(0).setVisibility(View.VISIBLE);
-            gameManager.getAdvanceMatrix()[0][randomIndex % max - 1] = cauldron_VALUE;
+            gameManager.getAdvanceMatrix()[0][randomIndex % max - 1] = CAULDRON_VALUE;
         }
     }
 
@@ -202,6 +215,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 MySignal.getInstance().toast(getString(R.string.crush_toast));
             }
+        } else if (currentValue == LOCATION_VALUE) {
+            MySignal.getInstance().toast(getString(R.string.Location_toast));
         } else {
             MySignal.getInstance().sound(R.raw.happy);
             MySignal.getInstance().toast(getString(R.string.cauldron_toast));
@@ -222,14 +237,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveThePlayer(int score) {
-        String playerName = main_EDITTEXT_newName.getText().toString();
-        gameManager.setPlayer(playerName, score, lat, lon);
-        gameManager.addPlayerToDB();
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_LOCATION_PERMISSION);
+            return;
+        }
+        fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, location -> {
+                    if (location != null) {
+                        double lat = location.getLatitude();
+                        double lon = location.getLongitude();
+                        String playerName = main_EDITTEXT_newName.getText().toString();
+                        gameManager.setPlayer(playerName, score, lat, lon);
+                        gameManager.addPlayerToDB();
 
-        if (!main_EDITTEXT_newName.getText().toString().isEmpty()) {
-            changeActivity();
+                        if (!main_EDITTEXT_newName.getText().toString().isEmpty()) {
+                            changeActivity();
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                saveThePlayer(gameManager.getScore());
+            }
+        } else {
+            addEffects(LOCATION_VALUE);
         }
     }
+
 
     private void changeActivity() {
         Intent recordIntent = new Intent(this, RecordsActivity.class);
@@ -323,6 +362,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gameOver() {
-            myTImer.timerOff();
+        myTImer.timerOff();
     }
 }

@@ -41,7 +41,6 @@ public class RecordsActivity extends AppCompatActivity {
     private void initFragments() {
         listFragment = new ListFragment();
         mapsFragment = new MapsFragment();
-//        mapsFragment.setOnMapReadyCallback(() -> mapsFragment.zoom(32.014785, 34.787335, "start"));
         listFragment.setCallback((lat, lon, playerName) -> mapsFragment.zoom(lat, lon, playerName));
         getSupportFragmentManager().beginTransaction().add(R.id.record_FRAME_list, listFragment).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.record_FRAME_map, mapsFragment).commit();
@@ -66,7 +65,7 @@ public class RecordsActivity extends AppCompatActivity {
         map_BTN_play_again = findViewById(R.id.map_BTN_play_again);
         record_FRAME_list = findViewById(R.id.record_FRAME_list);
         record_FRAME_map = findViewById(R.id.record_FRAME_map);
-        Glide.with(this).clear(frameList_IMG_background);
+//        Glide.with(this).clear(frameList_IMG_background);
     }
 
 

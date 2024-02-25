@@ -3,7 +3,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
-    android:layout_marginTop="@dimen/small_margin_default"
     android:layout_centerHorizontal="true"
     android:orientation="horizontal"
     >
@@ -37,7 +36,6 @@
         android:id="@+id/player_MTV_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_toEndOf="@id/player_MTV_name"
         android:layout_marginStart="@dimen/small_margin_default"
         android:layout_marginTop="@dimen/small_margin_default"
@@ -48,9 +46,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/player_IMG_playerMap"
-        android:layout_width="@dimen/small_margin_default"
-        android:layout_height="@dimen/small_margin_default"
-        android:layout_marginTop="@dimen/map_image_margin_top"
+        android:layout_width="@dimen/big_margin_default"
+        android:layout_height="@dimen/big_margin_default"
         android:scaleType="centerCrop"
         android:layout_alignParentEnd="true"
         android:src="@drawable/map" />
