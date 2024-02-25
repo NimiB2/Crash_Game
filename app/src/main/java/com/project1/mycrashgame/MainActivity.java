@@ -19,6 +19,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.Gson;
+import com.project1.mycrashgame.Interfaces.Callback_Sensors;
 import com.project1.mycrashgame.Interfaces.Callback_Timer;
 import com.project1.mycrashgame.Logic.GameManager;
 import com.project1.mycrashgame.DataBase.DataBase;
@@ -27,12 +28,13 @@ import com.project1.mycrashgame.Utilities.MySignal;
 import com.project1.mycrashgame.Utilities.MyTImer;
 
 import com.google.android.gms.location.LocationServices;
+import com.project1.mycrashgame.Utilities.StepDetector;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private static final int SLOW = 800;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
-
     private static final long VIBRATION = 500;
     private static final int MOVE_RIGHT = 1;
     private static final int MOVE_LEFT = -1;
@@ -42,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
     private final int CAULDRON_VALUE = 2;
     private final int LOCATION_VALUE = 3;
     private MyTImer myTImer;
+    private int delay;
+    private int directionRight;
+    private int directionLeft;
+    private boolean sensorsMode;
+
     Gson gson = new Gson();
     private ArrayList<LinearLayoutCompat> main_All_Layouts_Of_cauldron = new ArrayList<>();
     private ArrayList<ShapeableImageView> main_IMG_hats = new ArrayList<>();
@@ -59,17 +66,20 @@ public class MainActivity extends AppCompatActivity {
     private int life;
     private int numOfRowsInCloudMatrix, numOfColsInCloudMatrix;
     private DataBase dataBase = new DataBase();
-
+    private StepDetector stepDetector;
     private FusedLocationProviderClient fusedLocationClient;
     private double lat;
     private double lon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initGame();
 
+        Intent intent = getIntent();
+        sensorsMode = intent.getBooleanExtra("sensorsMode", false);
+        initGame();
     }
 
     @Override
@@ -81,25 +91,45 @@ public class MainActivity extends AppCompatActivity {
     private void initGame() {
         findViews();
         initBackground();
-        initButtonListeners();
         life = main_IMG_hats.size();
         gameManager = new GameManager(main_All_Layouts_Of_Cloud, main_All_Layouts_Of_cauldron, life);
         myMatrix = gameManager.getMyMatrix();
         gameSizes();
         setVisibility();
+        initButtonListeners();
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        checkMode();
+        directionRight = MOVE_RIGHT;
+        directionLeft = MOVE_LEFT;
+        delay = SLOW;
+
+        initDetector();
+        if (sensorsMode) {
+            stepDetector.start();
+        }
+    }
+
+    private void checkMode() {
+        if(sensorsMode){
+            main_FAB_left.setVisibility(View.INVISIBLE);
+            main_FAB_right.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         myTImer.timerOn();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         myTImer.timerOff();
+        if (sensorsMode) {
+            stepDetector.stop();
+        }
     }
 
     @Override
@@ -120,8 +150,25 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(() -> updateTimerUI());
             }
         };
-        myTImer = new MyTImer(callBack_timer);
 
+        myTImer = new MyTImer(callBack_timer, delay);
+
+    }
+
+    private void initDetector() {
+            stepDetector = new StepDetector(this, new Callback_Sensors() {
+                @Override
+                public void step(int move) {
+                    checkWitchMove(move);
+                }
+
+                @Override
+                public void speed(int speed) {
+                    delay = speed;
+
+                    startGame();
+                }
+            });
     }
 
     private void updateTimerUI() {
@@ -277,20 +324,48 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initButtonListeners() {
-        main_FAB_left.setOnClickListener(v -> checkWitchMove(getString(R.string.left)));
-        main_FAB_right.setOnClickListener(v -> checkWitchMove(getString(R.string.right)));
+        // int witchVisibleIndex = gameManager.getWitchVisibleIndex();
+
+        main_FAB_left.setOnClickListener(v -> checkWitchMove(directionLeft));
+        main_FAB_right.setOnClickListener(v -> checkWitchMove(directionRight));
         main_BTN_submit.setOnClickListener(v -> saveThePlayer(gameManager.getScore()));
     }
 
-    private void checkWitchMove(String direction) {
+    private void checkWitchMove(int direction) {
         int witchVisibleIndex = gameManager.getWitchVisibleIndex();
 
-        if (direction.equals(getString(R.string.right))) {
+        if (direction == directionRight) {
             moveWitch(MOVE_RIGHT, witchVisibleIndex);
 
         } else moveWitch(MOVE_LEFT, witchVisibleIndex);
 
     }
+
+//    private void initButtonListeners() {
+//        main_FAB_left.setOnClickListener(v -> checkWitchMove(getString(R.string.left)));
+//        main_FAB_right.setOnClickListener(v -> checkWitchMove(getString(R.string.right)));
+//        main_BTN_submit.setOnClickListener(v -> saveThePlayer(gameManager.getScore()));
+//    }
+//
+//    private void checkWitchMove(String direction) {
+//        int witchVisibleIndex = gameManager.getWitchVisibleIndex();
+//
+//        if (direction.equals(getString(R.string.right))) {
+//            moveWitch(MOVE_RIGHT, witchVisibleIndex);
+//
+//        } else moveWitch(MOVE_LEFT, witchVisibleIndex);
+//
+//    }
+//
+//    private void moveWitch(int direction, int witchVisibleIndex) {
+//        int newVisibleIndex = witchVisibleIndex + direction;
+//
+//        if (newVisibleIndex >= 0 && newVisibleIndex < main_LAYOUT_Of_Witches.size()) {
+//            main_LAYOUT_Of_Witches.get(witchVisibleIndex).setVisibility(View.INVISIBLE);
+//            main_LAYOUT_Of_Witches.get(newVisibleIndex).setVisibility(View.VISIBLE);
+//            gameManager.setWitchVisibleIndex(newVisibleIndex);
+//        }
+//    }
 
     private void moveWitch(int direction, int witchVisibleIndex) {
         int newVisibleIndex = witchVisibleIndex + direction;

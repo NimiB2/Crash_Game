@@ -56,6 +56,7 @@ public class MySignal {
         }
         mp = MediaPlayer.create(context,audio);
         if(mp !=null){
+            mp.setVolume(1.0f,1.0f);
             mp.start();
             mp.setOnCompletionListener(MediaPlayer::pause);
         }

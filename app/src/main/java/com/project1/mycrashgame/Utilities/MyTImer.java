@@ -9,14 +9,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MyTImer {
-    private static final long DELAY = 800;
+    private int delay;
     private Timer timer ;
     private Callback_Timer callbackTimer;
 
 
-    public MyTImer(Callback_Timer callbackTimer) {
+    public MyTImer(Callback_Timer callbackTimer,int delay) {
         timer=new Timer();
         this.callbackTimer = callbackTimer;
+        this.delay=delay;
     }
 
     public void timerOn(){
@@ -27,7 +28,16 @@ public class MyTImer {
                     callbackTimer.tick();
                 }
             }
-        }, DELAY, DELAY);
+        }, delay, delay);
+    }
+
+    public int getDelay() {
+        return delay;
+    }
+
+    public MyTImer setDelay(int delay) {
+        this.delay = delay;
+        return this;
     }
 
     public void timerOff(){

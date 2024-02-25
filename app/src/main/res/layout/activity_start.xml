@@ -23,11 +23,24 @@
         android:layout_marginTop="@dimen/big_margin_default"
         android:text="@string/welcome" />
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/start_SWITCH_Sensors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/score_txt_margin_start"
+        android:layout_below="@id/start_MTV_welcome"
+        android:text="@string/Sensors_mode" />
+
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/start_BTN_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/main_frame_size"
         android:backgroundTint="@color/orange_300"
         android:textColor="@color/black"
         android:textSize="@dimen/text_size"

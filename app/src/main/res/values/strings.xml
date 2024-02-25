@@ -20,4 +20,6 @@
     <string name="top_records_button">Top records</string>
     <string name="my_api_key">AIzaSyCy5YO0AiLaK6aSOHZz3b7KRmfPbFcQMsM</string>
     <string name="play_again">play_again</string>
+    <string name="speed_control">Speed control</string>
+    <string name="Sensors_mode">Sensors mode</string>
 </resources>
