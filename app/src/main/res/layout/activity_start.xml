@@ -25,13 +25,21 @@
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/start_SWITCH_Sensors"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/main_frame_size"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/score_txt_margin_start"
         android:layout_below="@id/start_MTV_welcome"
         android:text="@string/Sensors_mode" />
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/start_SWITCH_speed"
+        android:layout_width="@dimen/main_frame_size"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/small_margin_default"
+        android:layout_below="@id/start_SWITCH_Sensors"
+        android:text="Go Fast " />
 
 
     <com.google.android.material.button.MaterialButton

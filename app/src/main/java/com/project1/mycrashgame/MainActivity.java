@@ -20,6 +20,7 @@ import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.Gson;
 import com.project1.mycrashgame.Interfaces.Callback_Sensors;
+import com.project1.mycrashgame.Interfaces.Callback_Speed;
 import com.project1.mycrashgame.Interfaces.Callback_Timer;
 import com.project1.mycrashgame.Logic.GameManager;
 import com.project1.mycrashgame.DataBase.DataBase;
@@ -33,7 +34,8 @@ import com.project1.mycrashgame.Utilities.StepDetector;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int SLOW = 800;
+    private static final int SLOW = 900;
+    private static final int FAST = 500;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private static final long VIBRATION = 500;
     private static final int MOVE_RIGHT = 1;
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     private double lat;
     private double lon;
+    private boolean speedControl;
 
 
     @Override
@@ -79,13 +82,14 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         sensorsMode = intent.getBooleanExtra("sensorsMode", false);
+        speedControl = intent.getBooleanExtra("speedControl", false);
         initGame();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        startGame();
+        startGame(delay);
     }
 
     private void initGame() {
@@ -102,15 +106,18 @@ public class MainActivity extends AppCompatActivity {
         directionRight = MOVE_RIGHT;
         directionLeft = MOVE_LEFT;
         delay = SLOW;
-
         initDetector();
+
         if (sensorsMode) {
             stepDetector.start();
+        }
+        if (speedControl) {
+            delay = FAST;
         }
     }
 
     private void checkMode() {
-        if(sensorsMode){
+        if (sensorsMode) {
             main_FAB_left.setVisibility(View.INVISIBLE);
             main_FAB_right.setVisibility(View.INVISIBLE);
         }
@@ -120,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         myTImer.timerOn();
+        stepDetector.start();
 
     }
 
@@ -143,7 +151,8 @@ public class MainActivity extends AppCompatActivity {
         gameOver();
     }
 
-    private void startGame() {
+    private void startGame(int speed) {
+
         Callback_Timer callBack_timer = new Callback_Timer() {
             @Override
             public void tick() {
@@ -151,29 +160,34 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        myTImer = new MyTImer(callBack_timer, delay);
-
+        myTImer = new MyTImer(callBack_timer, speed);
     }
+
 
     private void initDetector() {
-            stepDetector = new StepDetector(this, new Callback_Sensors() {
-                @Override
-                public void step(int move) {
-                    checkWitchMove(move);
-                }
+        stepDetector = new StepDetector(this, new Callback_Sensors() {
+            @Override
+            public void step(int move) {
 
-                @Override
-                public void speed(int speed) {
-                    delay = speed;
-
-                    startGame();
-                }
-            });
+                checkWitchMove(move);
+            }
+        }, new Callback_Speed() {
+            @Override
+            public void speed(int speed) {
+                startGame(speed);
+            }
+        });
     }
 
+
     private void updateTimerUI() {
-        startRunItems();
-        startOdometer();
+        if (gameManager.isGameOver()) {
+            gameOver();
+        } else {
+            startRunItems();
+            startOdometer();
+        }
+
     }
 
     private void startOdometer() {
@@ -276,11 +290,14 @@ public class MainActivity extends AppCompatActivity {
         int currentNumOfCrush = gameManager.getNumOfCrush();
         gameManager.updateNumOfCrush();
         if (gameManager.isGameOver()) {
-            gameOver();
+            main_IMG_hats.get(life-1).setVisibility(View.INVISIBLE);
             main_FRAME_name.setVisibility(View.VISIBLE);
-        } else {
+            gameOver();
+
+        } else if (currentNumOfCrush < main_IMG_hats.size()) {
             main_IMG_hats.get(currentNumOfCrush).setVisibility(View.INVISIBLE);
         }
+
     }
 
     private void saveThePlayer(int score) {
@@ -319,12 +336,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeActivity() {
         Intent recordIntent = new Intent(this, RecordsActivity.class);
+        recordIntent.putExtra("sensorsMode", sensorsMode);
+        recordIntent.putExtra("speedControl", speedControl);
         startActivity(recordIntent);
         finish();
     }
 
     private void initButtonListeners() {
-        // int witchVisibleIndex = gameManager.getWitchVisibleIndex();
 
         main_FAB_left.setOnClickListener(v -> checkWitchMove(directionLeft));
         main_FAB_right.setOnClickListener(v -> checkWitchMove(directionRight));
@@ -337,35 +355,11 @@ public class MainActivity extends AppCompatActivity {
         if (direction == directionRight) {
             moveWitch(MOVE_RIGHT, witchVisibleIndex);
 
-        } else moveWitch(MOVE_LEFT, witchVisibleIndex);
+        } else if (direction == directionLeft) {
+            moveWitch(MOVE_LEFT, witchVisibleIndex);
+        }
 
     }
-
-//    private void initButtonListeners() {
-//        main_FAB_left.setOnClickListener(v -> checkWitchMove(getString(R.string.left)));
-//        main_FAB_right.setOnClickListener(v -> checkWitchMove(getString(R.string.right)));
-//        main_BTN_submit.setOnClickListener(v -> saveThePlayer(gameManager.getScore()));
-//    }
-//
-//    private void checkWitchMove(String direction) {
-//        int witchVisibleIndex = gameManager.getWitchVisibleIndex();
-//
-//        if (direction.equals(getString(R.string.right))) {
-//            moveWitch(MOVE_RIGHT, witchVisibleIndex);
-//
-//        } else moveWitch(MOVE_LEFT, witchVisibleIndex);
-//
-//    }
-//
-//    private void moveWitch(int direction, int witchVisibleIndex) {
-//        int newVisibleIndex = witchVisibleIndex + direction;
-//
-//        if (newVisibleIndex >= 0 && newVisibleIndex < main_LAYOUT_Of_Witches.size()) {
-//            main_LAYOUT_Of_Witches.get(witchVisibleIndex).setVisibility(View.INVISIBLE);
-//            main_LAYOUT_Of_Witches.get(newVisibleIndex).setVisibility(View.VISIBLE);
-//            gameManager.setWitchVisibleIndex(newVisibleIndex);
-//        }
-//    }
 
     private void moveWitch(int direction, int witchVisibleIndex) {
         int newVisibleIndex = witchVisibleIndex + direction;
@@ -437,6 +431,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gameOver() {
+        main_FAB_left.setVisibility(View.INVISIBLE);
+        main_FAB_right.setVisibility(View.INVISIBLE);
+        stepDetector.stop();
         myTImer.timerOff();
     }
 }

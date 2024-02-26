@@ -22,6 +22,8 @@ public class RecordsActivity extends AppCompatActivity {
     private MaterialButton map_BTN_back;
 
     private MaterialButton map_BTN_play_again;
+    private boolean sensorsMode;
+    private boolean speedControl;
 
 
     @Override
@@ -34,6 +36,9 @@ public class RecordsActivity extends AppCompatActivity {
         map_BTN_back.setOnClickListener(v -> changeToStartActivity());
         map_BTN_play_again.setOnClickListener(v -> changeToMainActivity());
 
+        Intent intent = getIntent();
+        sensorsMode = intent.getBooleanExtra("sensorsMode", false);
+        speedControl = intent.getBooleanExtra("speedControl", false);
 
     }
 
@@ -55,6 +60,8 @@ public class RecordsActivity extends AppCompatActivity {
 
     private void changeToMainActivity() {
         Intent mainIntent = new Intent(this, MainActivity.class);
+        mainIntent.putExtra("sensorsMode", sensorsMode);
+        mainIntent.putExtra("speedControl", speedControl);
         startActivity(mainIntent);
         finish();
     }

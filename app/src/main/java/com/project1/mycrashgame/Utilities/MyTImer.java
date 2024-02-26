@@ -35,9 +35,8 @@ public class MyTImer {
         return delay;
     }
 
-    public MyTImer setDelay(int delay) {
+    public void setDelay(int delay) {
         this.delay = delay;
-        return this;
     }
 
     public void timerOff(){

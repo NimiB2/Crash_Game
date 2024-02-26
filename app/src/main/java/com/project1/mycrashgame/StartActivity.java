@@ -16,6 +16,7 @@ public class StartActivity extends AppCompatActivity {
     private ShapeableImageView start_IMG_background;
 
     SwitchCompat start_SWITCH_Sensors;
+    SwitchCompat start_SWITCH_speed;
     private MaterialTextView start_MTV_wellcome;
     private MaterialButton start_BTN_start;
     private MaterialButton start_BTN_record;
@@ -37,10 +38,18 @@ public class StartActivity extends AppCompatActivity {
                 sensorsMode=isChecked;
             }
         });
+        start_SWITCH_speed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                speedControl=isChecked;
+            }
+        });
     }
 
     private void changeToRecordActivity() {
         Intent recordIntent = new Intent(this, RecordsActivity.class);
+        recordIntent.putExtra("sensorsMode", sensorsMode);
+        recordIntent.putExtra("speedControl", speedControl);
         startActivity(recordIntent);
     }
 
@@ -59,6 +68,7 @@ public class StartActivity extends AppCompatActivity {
         start_BTN_start = findViewById(R.id.start_BTN_start);
         start_BTN_record = findViewById(R.id.start_BTN_record);
         start_SWITCH_Sensors=findViewById(R.id.start_SWITCH_Sensors);
+        start_SWITCH_speed= findViewById(R.id.start_SWITCH_speed);
 
     }
 
