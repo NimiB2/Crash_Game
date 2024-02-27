@@ -41,8 +41,9 @@ Here are some screenshots of the game in action:
 -
 -
 -
--
-![צילום מסך 2024-02-27 190153](https://github.com/NimiB2/Crash_Game/assets/131991393/e90c0793-08cb-4d2f-94a1-a34ac2dfa9dd)
+![צילום מסך 2024-02-27 190153](https://github.com/NimiB2/Crash_Game/assets/131991393/3c175ad5-de9d-4054-a1fc-f64dd9fbfa19)
+
+
 ![צילום מסך 2024-02-27 190216](https://github.com/NimiB2/Crash_Game/assets/131991393/89ee1276-9830-481f-96e8-facf1f84b5f7)
 
 -
