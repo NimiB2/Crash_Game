@@ -42,27 +42,31 @@ Here are some screenshots of the game in action:
 -
 -
 -
-For example,
-A moment of crash:
-
-
-![צילום מסך 2024-02-03 175256](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/d1ebabb9-a034-4441-acb7-1e56930e9275)
-
-
-![צילום מסך 2024-02-03 175303](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/1b3307bb-5fab-44f3-b8c9-e436ecba1a4c)
+![צילום מסך 2024-02-27 190153](https://github.com/NimiB2/Crash_Game/assets/131991393/e90c0793-08cb-4d2f-94a1-a34ac2dfa9dd)
+![צילום מסך 2024-02-27 190216](https://github.com/NimiB2/Crash_Game/assets/131991393/89ee1276-9830-481f-96e8-facf1f84b5f7)
 
 -
 -
 -
 -
--
--
--
--
--
-End of life:
-![צילום מסך 2024-02-03 175345](https://github.com/NimiB2/Crash_Game_Part1/assets/131991393/71351da5-ee04-48d6-84ef-362fbf820b74)
 
+
+![צילום מסך 2024-02-27 190337](https://github.com/NimiB2/Crash_Game/assets/131991393/808e8b1d-b60a-4f8c-8024-0a341f2df3a7)
+
+
+
+
+
+-
+-
+-
+-
+-
+The record table and the map
+
+![צילום מסך 2024-02-27 190236](https://github.com/NimiB2/Crash_Game/assets/131991393/42c5e010-7df4-4003-9cc8-68ddb30243be)
+
+![צילום מסך 2024-02-27 190255](https://github.com/NimiB2/Crash_Game/assets/131991393/75e4b8a5-0d11-4cf2-b195-fe9364e15ef8)
 
 
 
