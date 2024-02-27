@@ -1,10 +1,10 @@
 My Crash Game
 
-My Crash Game is an Android game where you have to avoid crashing into the clouds and witches. You can move your witch left or right by tapping the buttons on the screen. The game gets faster and harder as you progress. How long can you survive?
+My Crash Game is an Android game where you have to avoid crashing into the clouds. You can move your witch left or right by tapping the buttons on the screen or use sensors. You can choose the if the game gets faster and harder or take it easy. How long can you survive?
 
 This game was a project for my study. In the development, I used a timer, a vibrator, and a toast to create an engaging and challenging experience.
 
-Note: I did not use canvas and X Y coordinates to move the clouds in this game. Instead, I used a matrix of layouts and views to create the animation.
+Note: Constraints building the system was not use canvas and X Y coordinates to move the clouds in this game. Instead, I used a matrix of layouts and views to create the animation.
 
 Features
 Save data: The game keeps a list of the top 10 records in the game. You can see your rank and score on the main screen.
