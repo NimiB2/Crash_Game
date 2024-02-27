@@ -42,7 +42,9 @@ Here are some screenshots of the game in action:
 -
 -
 ![צילום מסך 2024-02-27 190153](https://github.com/NimiB2/Crash_Game/assets/131991393/3c175ad5-de9d-4054-a1fc-f64dd9fbfa19)
-
+-
+-
+-
 
 ![צילום מסך 2024-02-27 190216](https://github.com/NimiB2/Crash_Game/assets/131991393/89ee1276-9830-481f-96e8-facf1f84b5f7)
 
@@ -67,6 +69,9 @@ The record table and the map
 
 ![צילום מסך 2024-02-27 190236](https://github.com/NimiB2/Crash_Game/assets/131991393/42c5e010-7df4-4003-9cc8-68ddb30243be)
 
+-
+-
+-
 ![צילום מסך 2024-02-27 190255](https://github.com/NimiB2/Crash_Game/assets/131991393/75e4b8a5-0d11-4cf2-b195-fe9364e15ef8)
 
 
