@@ -1,16 +1,27 @@
 My Crash Game
-My Crash Game is an Android game where you have to avoid crashing into the clouds into the witch. You can move your the witch left or right by tapping the buttons on the screen. The game gets faster and harder as you progress. How long can you survive?
 
-This game was a project for my study. In the development, I used a timer, a vibrator, and a toast to create an engaging and challenging experience. This is an endless game, so try to beat your own high score!
+My Crash Game is an Android game where you have to avoid crashing into the clouds and witches. You can move your witch left or right by tapping the buttons on the screen. The game gets faster and harder as you progress. How long can you survive?
+
+This game was a project for my study. In the development, I used a timer, a vibrator, and a toast to create an engaging and challenging experience.
 
 Note: I did not use canvas and X Y coordinates to move the clouds in this game. Instead, I used a matrix of layouts and views to create the animation.
 
-![Screenshot of My Crash Game]
+Features
+Save data: The game keeps a list of the top 10 records in the game. You can see your rank and score on the main screen.
+Google map: The game also records the location of each player who made it to the top 10. You can see a Google map with markers showing where the players played the game. You can zoom in and out of the map to explore the locations.
+Sensor mode: You can choose to use buttons or the sensors to control the witch. If you choose the sensor mode, you can tilt your device left or right to move the witch.
+Fast or slow: You can choose to play the game in fast or slow mode. The fast mode will make the game more difficult and exciting, while the slow mode will make the game easier and relaxing.
 
-Usage
-To play My Crash Game, tap the left or right button to move your hat. Avoid hitting the clouds and witches that fall from the sky. You have three lives, which are shown by the hats at the top of the screen. If you lose all your lives, the game is over.
+Requirements
+
+Internet connection
+Location permission
+
 
 Would you like to play 😊
+
+Here are some screenshots of the game in action:
+
 -
 -
 -
