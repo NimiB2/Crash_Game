@@ -2,7 +2,6 @@ package com.project1.mycrashgame.Model;
 
 public class Player {
     private String name ="";
-
     private int position;
     private long score=0;
     private double lat=0.0;

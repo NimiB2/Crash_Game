@@ -13,8 +13,6 @@ public class MyMatrix {
     private List<LinearLayoutCompat> layoutsCloudList;
     private List<LinearLayoutCompat> layoutscauldronList;
 
-
-
     public MyMatrix() {
 
     }

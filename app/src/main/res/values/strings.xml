@@ -22,4 +22,8 @@
     <string name="play_again">play_again</string>
     <string name="speed_control">Speed control</string>
     <string name="Sensors_mode">Sensors mode</string>
+    <string name="sensorsmode">sensorsMode</string>
+    <string name="speedcontrol">speedControl</string>
+    <string name="go_fast">Go Fast</string>
+    <string name="_1">1.</string>
 </resources>

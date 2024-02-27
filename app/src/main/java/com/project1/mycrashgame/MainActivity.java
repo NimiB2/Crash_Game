@@ -34,24 +34,23 @@ import com.project1.mycrashgame.Utilities.StepDetector;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int SLOW = 900;
-    private static final int FAST = 500;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private static final long VIBRATION = 500;
+
+    private static final int SLOW = 900;
+    private static final int FAST = 500;
+
+
     private static final int MOVE_RIGHT = 1;
     private static final int MOVE_LEFT = -1;
+
     private final int DISTANCE_STATUS = 0;
     private final int cauldron_STATUS = 1;
     private final int CLOUD_VALUE = 1;
     private final int CAULDRON_VALUE = 2;
     private final int LOCATION_VALUE = 3;
-    private MyTImer myTImer;
-    private int delay;
-    private int directionRight;
-    private int directionLeft;
-    private boolean sensorsMode;
 
-    Gson gson = new Gson();
+
     private ArrayList<LinearLayoutCompat> main_All_Layouts_Of_cauldron = new ArrayList<>();
     private ArrayList<ShapeableImageView> main_IMG_hats = new ArrayList<>();
     private ArrayList<LinearLayoutCompat> main_All_Layouts_Of_Cloud = new ArrayList<>();
@@ -62,14 +61,25 @@ public class MainActivity extends AppCompatActivity {
     private MaterialTextView main_LBL_score;
     private FrameLayout main_FRAME_name;
     private EditText main_EDITTEXT_newName;
+
+    Gson gson = new Gson();
+    private FusedLocationProviderClient fusedLocationClient;
+    private MyTImer myTImer;
     private GameManager gameManager;
     private MyMatrix myMatrix;
-    private int numOfWitches;
-    private int life;
-    private int numOfRowsInCloudMatrix, numOfColsInCloudMatrix;
     private DataBase dataBase = new DataBase();
     private StepDetector stepDetector;
-    private FusedLocationProviderClient fusedLocationClient;
+
+
+    private int directionRight;
+    private int directionLeft;
+    private boolean sensorsMode;
+
+    private int numOfWitches;
+    private int numOfRowsInCloudMatrix, numOfColsInCloudMatrix;
+    private int life;
+
+    private int delay;
     private double lat;
     private double lon;
     private boolean speedControl;
@@ -81,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        sensorsMode = intent.getBooleanExtra("sensorsMode", false);
-        speedControl = intent.getBooleanExtra("speedControl", false);
+        sensorsMode = intent.getBooleanExtra(getString(R.string.sensorsmode), false);
+        speedControl = intent.getBooleanExtra(getString(R.string.speedcontrol), false);
         initGame();
     }
 
@@ -91,6 +101,35 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         startGame(delay);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        myTImer.timerOn();
+        stepDetector.start();
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        myTImer.timerOff();
+        if (sensorsMode) {
+            stepDetector.stop();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        gameOver();
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        gameOver();
+    }
+
 
     private void initGame() {
         findViews();
@@ -123,34 +162,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        myTImer.timerOn();
-        stepDetector.start();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        myTImer.timerOff();
-        if (sensorsMode) {
-            stepDetector.stop();
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        gameOver();
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-        gameOver();
-    }
-
     private void startGame(int speed) {
 
         Callback_Timer callBack_timer = new Callback_Timer() {
@@ -163,13 +174,12 @@ public class MainActivity extends AppCompatActivity {
         myTImer = new MyTImer(callBack_timer, speed);
     }
 
-
     private void initDetector() {
         stepDetector = new StepDetector(this, new Callback_Sensors() {
             @Override
             public void step(int move) {
-
-                checkWitchMove(move);
+                if (sensorsMode)
+                    checkWitchMove(move);
             }
         }, new Callback_Speed() {
             @Override
@@ -178,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
     private void updateTimerUI() {
         if (gameManager.isGameOver()) {
@@ -290,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
         int currentNumOfCrush = gameManager.getNumOfCrush();
         gameManager.updateNumOfCrush();
         if (gameManager.isGameOver()) {
-            main_IMG_hats.get(life-1).setVisibility(View.INVISIBLE);
+            main_IMG_hats.get(life - 1).setVisibility(View.INVISIBLE);
             main_FRAME_name.setVisibility(View.VISIBLE);
             gameOver();
 
@@ -336,8 +345,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeActivity() {
         Intent recordIntent = new Intent(this, RecordsActivity.class);
-        recordIntent.putExtra("sensorsMode", sensorsMode);
-        recordIntent.putExtra("speedControl", speedControl);
+        recordIntent.putExtra(getString(R.string.sensorsmode), sensorsMode);
+        recordIntent.putExtra(getString(R.string.speedcontrol), speedControl);
         startActivity(recordIntent);
         finish();
     }

@@ -12,17 +12,20 @@ import com.project1.mycrashgame.Interfaces.Callback_Speed;
 public class StepDetector {
     private final int CHECK_TIME = 300;
     private final Float CHECK_MOBILITY = 3.0F;
+
     private static final int MOVE_RIGHT = 1;
     private static final int MOVE_LEFT = -1;
 
     private static final int FAST = 500;
     private static final int SLOW = 900;
+
     private Context context;
+
     private SensorManager sensorManager;
     private Sensor sensor;
     private SensorEventListener sensorEventListener;
-    private Callback_Sensors callback_sensors;
 
+    private Callback_Sensors callback_sensors;
     private Callback_Speed callback_speed;
 
     private int stepX = 0;

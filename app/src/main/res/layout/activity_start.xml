@@ -39,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/small_margin_default"
         android:layout_below="@id/start_SWITCH_Sensors"
-        android:text="Go Fast " />
+        android:text="@string/go_fast" />
 
 
     <com.google.android.material.button.MaterialButton

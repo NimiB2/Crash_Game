@@ -20,8 +20,8 @@ public class RecordsActivity extends AppCompatActivity {
     private MapsFragment mapsFragment;
     private ShapeableImageView frameList_IMG_background;
     private MaterialButton map_BTN_back;
-
     private MaterialButton map_BTN_play_again;
+
     private boolean sensorsMode;
     private boolean speedControl;
 
@@ -37,8 +37,8 @@ public class RecordsActivity extends AppCompatActivity {
         map_BTN_play_again.setOnClickListener(v -> changeToMainActivity());
 
         Intent intent = getIntent();
-        sensorsMode = intent.getBooleanExtra("sensorsMode", false);
-        speedControl = intent.getBooleanExtra("speedControl", false);
+        sensorsMode = intent.getBooleanExtra(getString(R.string.sensorsmode), false);
+        speedControl = intent.getBooleanExtra(getString(R.string.speedcontrol), false);
 
     }
 
@@ -60,8 +60,8 @@ public class RecordsActivity extends AppCompatActivity {
 
     private void changeToMainActivity() {
         Intent mainIntent = new Intent(this, MainActivity.class);
-        mainIntent.putExtra("sensorsMode", sensorsMode);
-        mainIntent.putExtra("speedControl", speedControl);
+        mainIntent.putExtra(getString(R.string.sensorsmode), sensorsMode);
+        mainIntent.putExtra(getString(R.string.speedcontrol), speedControl);
         startActivity(mainIntent);
         finish();
     }
@@ -72,7 +72,6 @@ public class RecordsActivity extends AppCompatActivity {
         map_BTN_play_again = findViewById(R.id.map_BTN_play_again);
         record_FRAME_list = findViewById(R.id.record_FRAME_list);
         record_FRAME_map = findViewById(R.id.record_FRAME_map);
-//        Glide.with(this).clear(frameList_IMG_background);
     }
 
 
@@ -80,7 +79,6 @@ public class RecordsActivity extends AppCompatActivity {
         Glide
                 .with(this)
                 .load(R.drawable.bg)
-//                .centerCrop()
                 .placeholder(R.drawable.ic_launcher_background)
                 .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)

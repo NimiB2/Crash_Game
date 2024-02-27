@@ -18,16 +18,19 @@ public class GameManager {
     private final int DISTANCE = 10;
     private final int cauldron = 100;
     private final int NUM_OF_LIFE = 3;
-    private  int life;
-    private int score=0;
-    private Player player;
+
     private Gson gson;
+    private Player player;
     private DataBase dataBase;
-    private int [][] advanceMatrix;
+
     private MyMatrix myMatrix;
+    private int [][] advanceMatrix;
     private  int numOfColumns;
     private  int numOfRows;
+
     private int witchVisibleIndex;
+    private  int life;
+    private int score=0;
     private int numOfCrush=0;
 
     public GameManager() {
@@ -128,8 +131,6 @@ public class GameManager {
         String spDB= gson.toJson(this.dataBase);
         SharedPreferencesManager.getInstance().putString(RECOREDS_LIST,spDB);
     }
-
-
 
     public boolean isGameOver(){
         return this.life== this.numOfCrush;

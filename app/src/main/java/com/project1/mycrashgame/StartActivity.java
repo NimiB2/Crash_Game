@@ -14,9 +14,8 @@ import com.google.android.material.textview.MaterialTextView;
 
 public class StartActivity extends AppCompatActivity {
     private ShapeableImageView start_IMG_background;
-
-    SwitchCompat start_SWITCH_Sensors;
-    SwitchCompat start_SWITCH_speed;
+   private SwitchCompat start_SWITCH_Sensors;
+   private SwitchCompat start_SWITCH_speed;
     private MaterialTextView start_MTV_wellcome;
     private MaterialButton start_BTN_start;
     private MaterialButton start_BTN_record;
@@ -48,15 +47,15 @@ public class StartActivity extends AppCompatActivity {
 
     private void changeToRecordActivity() {
         Intent recordIntent = new Intent(this, RecordsActivity.class);
-        recordIntent.putExtra("sensorsMode", sensorsMode);
-        recordIntent.putExtra("speedControl", speedControl);
+        recordIntent.putExtra(getString(R.string.sensorsmode), sensorsMode);
+        recordIntent.putExtra(getString(R.string.speedcontrol), speedControl);
         startActivity(recordIntent);
     }
 
     private void changetoMainActivity() {
         Intent mainIntent = new Intent(this, MainActivity.class);
-        mainIntent.putExtra("sensorsMode", sensorsMode);
-        mainIntent.putExtra("speedControl", speedControl);
+        mainIntent.putExtra(getString(R.string.sensorsmode), sensorsMode);
+        mainIntent.putExtra(getString(R.string.speedcontrol), speedControl);
         startActivity(mainIntent);
         finish();
     }
